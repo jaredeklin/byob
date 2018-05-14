@@ -29,7 +29,7 @@ getTopArtists()
 const cleanArtist = (data) => {
   
   const promises = data.map( async (artist) => {
-    let albums = await getAlbums(artist.name)
+    // let albums = await getAlbums(artist.name)
     // console.log(albums)
 
     const artistObj = {
@@ -40,10 +40,10 @@ const cleanArtist = (data) => {
       // albums: albums
     }
 
-    return Promise.all(artistObj)
+    return artistObj
   })
 
-  return promises
+  return Promise.all(promises)
 }
 
 const getAlbums = async (artist) => {
