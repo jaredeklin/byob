@@ -37,9 +37,24 @@ app.get('/api/v1/albums/:id', (request, response) => {
     .catch(error => response.status(404).json({error}))
 })
 
+app.post('/api/v1/artists/', (request, response) => {
+  const artist = request.body
+  const keys = ['id', 'name', 'url', 'image']
+
+  database('artists').insert(artist, keys)
+    .then(artist => response.status(201).json(artist[0]))
+    .catch(error => response.status(422).json({error}))
+})
 
 
+app.post('/api/v1/albums/', (request, response) => {
+  const album = request.body
+  const keys = ['id', 'name', 'url', 'image', 'artist_id']
 
+  database('albums').insert(album, keys)
+    .then(album => response.status(201).json(album[0]))
+    .catch(error => response.status(422).json({error}))
+})
 
 
 
