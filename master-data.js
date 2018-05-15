@@ -1,4 +1,4 @@
-[
+module.exports = [
   {
     "name": "Drake",
     "mbid": "b49b81cc-d5b7-4bdd-aadb-385df8de69a6",
