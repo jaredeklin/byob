@@ -14,9 +14,17 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.get('/api/v1/artists', (request, response) => {
-  database('artists').select()
-    .then(artists => response.status(200).json(artists))
-    .catch(error => response.status(404).json({error}))
+  const name = request.param('name')
+
+  if(name) {
+    database('artists').where('name', name).select()
+      .then(artists => response.status(200).json(artists))
+      .catch(error => response.status(404).json({ error }))
+  } else {
+    database('artists').select()
+      .then(artists => response.status(200).json(artists))
+      .catch(error => response.status(404).json({error}))
+  }
 })
 
 app.get('/api/v1/albums', (request, response) => {
@@ -74,13 +82,13 @@ app.put('/api/v1/albums/:id', (request, response) => {
 app.delete('/api/v1/artists/:id', (request, response) => {
   database('artists').where('id', request.params.id).del()
     .then(artist => response.status(204).json(artist))
-    .catch(error => response.status(404).json({ error }))
+    .catch(error => response.status(404).json({error}))
 })
 
 app.delete('/api/v1/albums/:id', (request, response) => {
   database('albums').where('id', request.params.id).del()
     .then(album => response.status(204).json(album))
-    .catch(error => response.status(404).json({ error }))
+    .catch(error => response.status(404).json({error}))
 })
 
 app.listen(app.get('port'), () => {
