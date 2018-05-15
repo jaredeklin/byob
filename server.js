@@ -71,9 +71,17 @@ app.put('/api/v1/albums/:id', (request, response) => {
     .catch(error => response.status(422).json({error}))
 })
 
+app.delete('/api/v1/artists/:id', (request, response) => {
+  database('artists').where('id', request.params.id).del()
+    .then(artist => response.status(204).json(artist))
+    .catch(error => response.status(404).json({ error }))
+})
 
-
-
+app.delete('/api/v1/albums/:id', (request, response) => {
+  database('albums').where('id', request.params.id).del()
+    .then(album => response.status(204).json(album))
+    .catch(error => response.status(404).json({ error }))
+})
 
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} listening on localhost:${app.get('port')}.`)
