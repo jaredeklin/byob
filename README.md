@@ -8,23 +8,37 @@
 * Retrieves all artists from the database
 ```
 Response:
-status: 201
+status: 200
+```
+
+### GET: /api/v1/artists?name=
+* Retrieves all artists from the database whose name matches the given query.
+```
+Response:
+status: 200
+```
+
+#### Sample Output:
+
+##### GET: /api/v1/artists?name=
+```
+Response:
 ```
 
 ### GET: /api/v1/albums
 * Retrieves all albums from the database
 ```
 Response:
-status: 201
+status: 200
 ```
 
 ### GET: /api/v1/artists/:id
 * Retrieves a single artists with the given ID
 ```
 Response:
-status: 201
+status: 200
 ```
-#### Example:
+#### Sample Output:
 
 ##### GET: /api/v1/artists/1
 ```
@@ -44,9 +58,9 @@ Response:
 * Retrieves a single album with the given ID
 ```
 Response:
-status: 201
+status: 200
 ```
-#### Example:
+#### Sample Output:
 
 ##### GET: /api/v1/albums/1
 ```
@@ -62,3 +76,46 @@ Response:
   "updated_at": "2018-05-15T19:00:18.879Z"
 }
 ```
+
+### POST: /api/v1/artists/
+* Adds a new artist to the database
+```
+Response:
+status: 201
+```
+
+### POST: /api/v1/albums/
+* Adds a new album to the database
+```
+Response:
+status: 201
+```
+
+### PUT: /api/v1/artists/:id
+* Updates an existing artist in the database
+```
+Response:
+status: 201
+```
+
+### PUT: /api/v1/albums/:id
+* Updates an existing album in the database
+```
+Response:
+status: 201
+```
+
+### DELETE: /api/v1/artists/:id
+* Deletes an existing artist from the database
+```
+Response:
+status: 201
+```
+
+### DELETE: /api/v1/albums/:id
+* Deletes an existing album from the database
+```
+Response:
+status: 201
+```
+
