@@ -16,6 +16,22 @@ app.locals.title = 'BYOB';
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
+const checkAuth = (request, response, next) => {
+  const { token } = request.headers
+
+  if (token) {
+    const decoded = jwt.verify(token, secretKey);
+    
+    if (decoded.admin) {
+      next()
+    } else {
+      return response.status(403).json('Invalid token')
+    }
+  } else {
+    return response.status(400).json('Unauthorized')
+  }
+}
+
 app.get('/api/v1/artists', (request, response) => {
   const name = request.param('name');
 
@@ -48,7 +64,7 @@ app.get('/api/v1/albums/:id', (request, response) => {
     .catch(error => response.status(404).json({ error }));
 });
 
-app.post('/api/v1/artists/', (request, response) => {
+app.post('/api/v1/artists/', checkAuth, (request, response) => {
   const artist = request.body;
   const keys = ['id', 'name', 'url', 'image'];
 
