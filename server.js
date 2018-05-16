@@ -21,7 +21,7 @@ const checkAuth = (request, response, next) => {
 
   if (token) {
     const decoded = jwt.verify(token, secretKey);
-    
+
     if (decoded.admin) {
       next()
     } else {
@@ -73,7 +73,7 @@ app.post('/api/v1/artists/', checkAuth, (request, response) => {
     .catch(error => response.status(422).json({ error }));
 });
 
-app.post('/api/v1/albums/', (request, response) => {
+app.post('/api/v1/albums/', checkAuth, (request, response) => {
   const album = request.body;
   const keys = ['id', 'name', 'url', 'image', 'artist_id'];
 
@@ -82,7 +82,7 @@ app.post('/api/v1/albums/', (request, response) => {
     .catch(error => response.status(422).json({ error }));
 });
 
-app.put('/api/v1/artists/:id', (request, response) => {
+app.put('/api/v1/artists/:id', checkAuth, (request, response) => {
   const artist = request.body;
 
   database('artists').where('id', request.params.id)
@@ -91,7 +91,7 @@ app.put('/api/v1/artists/:id', (request, response) => {
     .catch(error => response.status(422).json({ error }));
 });
 
-app.put('/api/v1/albums/:id', (request, response) => {
+app.put('/api/v1/albums/:id', checkAuth, (request, response) => {
   const album = request.body;
 
   database('albums').where('id', request.params.id)
@@ -100,13 +100,13 @@ app.put('/api/v1/albums/:id', (request, response) => {
     .catch(error => response.status(422).json({ error }));
 });
 
-app.delete('/api/v1/artists/:id', (request, response) => {
+app.delete('/api/v1/artists/:id', checkAuth, (request, response) => {
   database('artists').where('id', request.params.id).del()
     .then(artist => response.status(204).json(artist))
     .catch(error => response.status(404).json({ error }));
 });
 
-app.delete('/api/v1/albums/:id', (request, response) => {
+app.delete('/api/v1/albums/:id', checkAuth, (request, response) => {
   database('albums').where('id', request.params.id).del()
     .then(album => response.status(204).json(album))
     .catch(error => response.status(404).json({ error }));
