@@ -28,7 +28,7 @@ exports.seed = (knex, Promise) => database.migrate.rollback()
   .then(() => knex('albums').del())
   .then(() => knex('artists').del())
   .then(() => {
-    const artistPromises = [];
+    let artistPromises = [];
 
     artistsData.forEach((artist) => {
       artistPromises.push(createArtist(knex, artist));
