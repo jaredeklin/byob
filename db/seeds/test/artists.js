@@ -7,7 +7,6 @@ const createArtist = (knex, artist) => knex('artists').insert({
   image: artist.image
 }, 'id')
   .then((artistId) => {
-    console.log(`artistID ${artistId}`);
     const albumPromises = [];
 
     artist.albums.forEach((album) => {
@@ -37,5 +36,5 @@ exports.seed = (knex, Promise) => database.migrate.rollback()
 
     return Promise.all(artistPromises);
   })
-  .catch(error => console.log(`Error seeding artist data: ${error}`));
+  .catch(error => console.log(`Error seeding artist data: ${error}`)); // eslint-disable-line
 
