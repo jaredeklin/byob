@@ -12,7 +12,7 @@ describe('Client Routes', () => {
 describe('API Routes', () => {
 
   beforeEach(() => {
-    database.seed.run()
+    return database.seed.run()
   })
 
   it('should GET all the artists', (done) => {
@@ -24,9 +24,6 @@ describe('API Routes', () => {
         response.body.should.be.an('array')
         response.body.length.should.equal(30)
         done()
-      })
-      .catch(error => {
-        throw error
       })
   })
 
