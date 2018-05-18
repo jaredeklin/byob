@@ -32,6 +32,7 @@ exports.seed = (knex, Promise) => database.migrate.rollback()
 
     artistsData.forEach((artist) => {
       artistPromises.push(createArtist(knex, artist));
+      
     });
 
     return Promise.all(artistPromises);
