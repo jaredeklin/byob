@@ -1,4 +1,4 @@
-# Bring Your Own Backend (BYOB) Database
+# Build Your Own Backend (BYOB) Database
 
 ## Overview
 The data for this project came from the Last.fm API and includes a collection of music artists and the top-5 albums for each artist.  The database contains two tables: artists and albums.  The two tables are related by an artist id field in the albums table.  Both tables also include properties of name, url, and image.
