@@ -961,32 +961,6 @@ module.exports = [
     "mbid": "2f548675-008d-4332-876c-108b0c7ab9c5",
     "url": "https://www.last.fm/music/Sia",
     "image": "https://lastfm-img2.akamaized.net/i/u/300x300/ee10f625b9a87a4d5d6febca8b0746a9.png",
-    "albums": [
-      {
-        "name": "Colour the Small One",
-        "url": "https://www.last.fm/music/Sia/Colour+the+Small+One",
-        "image": "https://lastfm-img2.akamaized.net/i/u/300x300/8115b60d3501166e662f1781cc438125.png"
-      },
-      {
-        "name": "1000 Forms of Fear",
-        "url": "https://www.last.fm/music/Sia/1000+Forms+of+Fear",
-        "image": "https://lastfm-img2.akamaized.net/i/u/300x300/3f4c6c4304f14295c2467839f608e6aa.png"
-      },
-      {
-        "name": "Some People Have Real Problems",
-        "url": "https://www.last.fm/music/Sia/Some+People+Have+Real+Problems",
-        "image": "https://lastfm-img2.akamaized.net/i/u/300x300/df5c2ce2f60e2a4d633b545c717126dc.png"
-      },
-      {
-        "name": "This is Acting",
-        "url": "https://www.last.fm/music/Sia/This+is+Acting",
-        "image": "https://lastfm-img2.akamaized.net/i/u/300x300/50c9af228a3847fe5a7f497d1136e543.png"
-      },
-      {
-        "name": "We Are Born",
-        "url": "https://www.last.fm/music/Sia/We+Are+Born",
-        "image": "https://lastfm-img2.akamaized.net/i/u/300x300/8608f07e09fbb0ff71a2f591e9efdca8.png"
-      }
-    ]
+    "albums": []
   }
 ]
