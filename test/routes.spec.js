@@ -77,7 +77,7 @@ describe('API Routes', () => {
         response.should.be.json
         response.should.have.status(201)
         response.body.should.be.an('object')
-        response.body.should.have.property('id', 151)
+        response.body.should.have.property('id', 146)
         response.body.should.have.property('name', 'Risk')
         response.body.should.have.property('url', 'http://www.drake.com/risk/')
         response.body.should.have.property('image', null)
@@ -186,13 +186,33 @@ describe('API Routes', () => {
         url: 'http://www.stilldrake.com'
       })
       .end((error, response) => {
-        response.should.be.json
         response.should.have.status(404)
         response.should.be.an('object')
         response.body.should.equal('That id does not exist')
         done()
       })
   })
+
+  it('should DELETE an existing artist', (done) => {
+    chai.request(app)
+      .del('/api/v1/artists/30')
+      .set('token', token)
+      .end((error, response) => {
+        response.should.have.status(204)
+        done()
+      })
+  })
+
+  it('should DELETE an existing album', (done) => {
+    chai.request(app)
+      .del('/api/v1/albums/30')
+      .set('token', token)
+      .end((error, response) => {
+        response.should.have.status(204)
+        done()
+      })
+  })
+
 
 
 });
