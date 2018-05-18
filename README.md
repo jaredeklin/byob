@@ -38,7 +38,7 @@ The following status codes are used to indicate the status of your request:
 
 The paths provided below are relative paths that will need to be added to the root path of the API.  For example, to make a GET request to return all artists, the fetch URL is https://byob-jared-michael.herokuapp.com/api/v1/artists/. 
 
-For fetches that request a specific resource, replace ":id" in the path with the id of the requested resource.  For example:
+For fetches that request a specific resource, replace ":id" in the path with the id of the requested resource.  For example, to request the artist "The Killers" with an ID of 24, the fetch URL would be:
 ```
 https://byob-jared-michael.herokuapp.com/api/v1/artists/24
 ```
