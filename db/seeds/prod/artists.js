@@ -40,3 +40,4 @@ exports.seed = (knex, Promise) => database.migrate.rollback()
   })
   .catch(error => console.log(`Error seeding artist data: ${error}`)); // eslint-disable-line
 
+
