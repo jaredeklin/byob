@@ -45,7 +45,7 @@ describe('API Routes', () => {
         response.body[0].should.have.property('id', 1);
         response.body[0].should.have.property('url', 'https://www.last.fm/music/Drake');
         response.body[0].should.have.property('image', 'https://lastfm-img2.akamaized.net/i/u/300x300/8b1974079754d9a3e194076bccd4f696.png');
-        response.body[29].should.have.property('name', 'Sia');
+        response.body[29].should.have.property('name');
         response.body[29].should.have.property('id', 30);
         response.body[29].should.have.property('url', 'https://www.last.fm/music/Sia');
         response.body[29].should.have.property('image', 'https://lastfm-img2.akamaized.net/i/u/300x300/ee10f625b9a87a4d5d6febca8b0746a9.png');
@@ -60,17 +60,17 @@ describe('API Routes', () => {
         response.should.be.json
         response.should.have.status(200)
         response.body.should.be.an('array')
-        response.body.length.should.equal(150)
+        response.body.length.should.equal(145)
         response.body[0].should.have.property('name');
         response.body[0].should.have.property('id');
         response.body[0].should.have.property('artist_id');
         response.body[0].should.have.property('url');
         response.body[0].should.have.property('image');
-        response.body[149].should.have.property('name');
-        response.body[149].should.have.property('id');
-        response.body[149].should.have.property('artist_id');
-        response.body[149].should.have.property('url');
-        response.body[149].should.have.property('image');
+        response.body[144].should.have.property('name');
+        response.body[144].should.have.property('id');
+        response.body[144].should.have.property('artist_id');
+        response.body[144].should.have.property('url');
+        response.body[144].should.have.property('image');
         done()
       })
   })
@@ -276,7 +276,7 @@ describe('API Routes', () => {
         done()
       })
     })
-    
+
   it('should GET a query for an artist name', (done) => {
     chai.request(app)
       .get('/api/v1/artists?name=Drake')
