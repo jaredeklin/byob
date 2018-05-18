@@ -25,10 +25,10 @@ const checkAuth = (request, response, next) => {
     if (decoded.admin) {
       next();
     } else {
-      return response.status(403).json('Invalid token');
+      return response.status(401).json('Invalid token');
     }
   } else {
-    return response.status(400).json('Unauthorized');
+    return response.status(403).json('Unauthorized');
   }
 };
 
@@ -108,9 +108,9 @@ app.post('/api/v1/albums/', checkAuth, (request, response) => {
   if (name && artist_id) {
     database('albums').insert(album, keys)
       .then(album => response.status(201).json(album[0]))
-      .catch(error => response.status(422).json('invalid artist id ' + error));
+      .catch(error => response.status(400).json('Invalid artist id.  ' + error));
   } else {
-    return response.status(500).json('Must provide name and artist id');
+    return response.status(422).json('Must provide name and artist id');
   }
 });
 
