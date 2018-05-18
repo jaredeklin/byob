@@ -5,10 +5,6 @@ const { app, database } = require('../server');
 
 chai.use(chaiHttp);
 
-// describe('checkAuth', () => {
-//   it('')
-// })
-
 describe('client routes', () => {
   it('should return the homepage', (done) => {
     chai.request(app)
