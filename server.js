@@ -108,7 +108,8 @@ app.post('/api/v1/albums/', checkAuth, (request, response) => {
   if (name && artist_id) {
     database('albums').insert(album, keys)
       .then(album => response.status(201).json(album[0]))
-      .catch(error => response.status(400).json('Invalid artist id.  ' + error));
+      .catch(error => response.status(400)
+        .json('Invalid artist id.  ' + error));
   } else {
     return response.status(422).json('Must provide name and artist id');
   }
