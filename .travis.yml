@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- node
+services:
+- postgresql
+before_script:
+- psql -c 'CREATE DATABASE top_artists_test;' -U postgres
+notifications:
+  email: false
+deploy:
+  provider: heroku
+  api_key:
+    secure: ot9eQvrzzAlsiZYh+wB8z6NRs7xWX1B5ZX8p0xygsUJM19d+5MhocXzlZ2mcHgCMc8kKp/xn58HIAwcCimFTKOvpa8fTjt1DvMWvdR5vh2emNLsAIqvRJ4/WnfX+lm1uEmUbaEOSyAFKtHPo+1GJjLTRux8qoIMKks92PrAaAqzbmlXSxrMuDcZN2HHB9lZt6cFi5HBQizlBLUIDfQoFUxdDeuFfJSfKRjjCwKDJGZpxT5PXammB3aIfwg5Aw5g1TOL0ssRVBXjJdhuEWNtDL/pQpqEyuQiQoSlfy7ZqYCMSkSJs9w/f/AVCxpZN37OlWLtWZGTt0LuF5cMFwBTsjpHs/fQvleKmA5GiCS6ZKC1BVH+t+yLnGspqk/chQ3pjR2OyAGsravEAIBEF39KjeQBX3FosfIp4Ze6Zjm1fI5aQbYu/jhTADQhCsUkXk9wKpRROuqywje/kG8aypO1m8WjfCU8+lxjfeQf1ajwoPY7aYlWf70TMdyC8uAGllhAYJYXD/4/9ypOnEE62vKaQpViPUGSl7NX7rCfOYbqGwRCcT4+zGYaA5+rWFlvD5l9HkvBYSUSdUOrrmFQcFEZtkihwJEBjc0OaKUV+yF0w4xhztxuFfcQk3IkESiuESxET8arHaaB1JUF+xHaG/TvvSxe7E9rpEwj+ANohDf2BDJI=
+  app: byob-jared-michael
+  skip_cleanup: true
